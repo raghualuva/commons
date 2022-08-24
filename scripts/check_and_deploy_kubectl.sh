@@ -65,7 +65,7 @@ pwd
 ls -la
 echo `ls -la`
 
-
+echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} using kubectl CLI"
 echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} using kubectl CLI"
 kubectl auth can-i create deployment --namespace ${CLUSTER_NAMESPACE}
 
@@ -172,7 +172,7 @@ EOT
     echo "ExposedPort $PORT found while inspecting image ${IMAGE}"
   else 
     echo "Found '$PORT' as ExposedPort while inspecting image ${IMAGE}, non numeric value so using 5000 as containerPort"
-    PORT=5000
+    PORT=5001
   fi
   # Generate deployment file  
   echo "GENERATED ${DEPLOYMENT_FILE}:"
