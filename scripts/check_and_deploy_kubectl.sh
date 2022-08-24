@@ -127,7 +127,10 @@ echo -e "Namespace ${CLUSTER_NAMESPACE} authorizing with private image registry 
 
 echo "=========================================================="
 echo "CHECKING DEPLOYMENT.YML manifest"
-if [ -z "${DEPLOYMENT_FILE}" ]; then DEPLOYMENT_FILE=deployment.yml ; fi
+if [ -z "${DEPLOYMENT_FILE}" ]; then
+  echo " ${DEPLOYMENT_FILE} found. Uisng it."
+  DEPLOYMENT_FILE=deployment.yml
+fi
 if [ ! -f ${DEPLOYMENT_FILE} ]; then
   echo "No ${DEPLOYMENT_FILE} found. Initializing it."
   deployment_content=$(cat <<'EOT'
