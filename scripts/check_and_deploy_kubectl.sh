@@ -69,6 +69,8 @@ echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} us
 echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} using kubectl CLI"
 kubectl auth can-i create deployment --namespace ${CLUSTER_NAMESPACE}
 
+echo "Creating faust-config configmap in ${CLUSTER_NAMESPACE} using kubectl CLI"
+kubectl apply -f config-map.yaml
 
 echo "Check faust-config configmap in ${CLUSTER_NAMESPACE} using kubectl CLI"
 kubectl describe configmap faust-config -n prod
