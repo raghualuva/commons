@@ -60,6 +60,12 @@ if [ ! -z "${KUBERNETES_MASTER_ADDRESS}" ]; then
 fi
 # Use kubectl auth to check if the kubectl client configuration is appropriate
 # check if the current configuration can create a deployment in the target namespace
+
+pwd
+ls -la
+echo `ls -la`
+
+
 echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} using kubectl CLI"
 kubectl auth can-i create deployment --namespace ${CLUSTER_NAMESPACE}
 
