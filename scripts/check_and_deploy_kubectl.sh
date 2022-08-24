@@ -69,6 +69,10 @@ echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} us
 echo "Check ability to create a kubernetes deployment in ${CLUSTER_NAMESPACE} using kubectl CLI"
 kubectl auth can-i create deployment --namespace ${CLUSTER_NAMESPACE}
 
+
+echo "Check faust-config configmap in ${CLUSTER_NAMESPACE} using kubectl CLI"
+kubectl describe configmap faust-config -n prod
+
 #Check cluster availability
 echo "=========================================================="
 echo "CHECKING CLUSTER readiness and namespace existence"
@@ -154,6 +158,9 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: %s
+        envFrom:
+        - configMapRef:
+            name: faust-config
 ---
 apiVersion: v1
 kind: Service
