@@ -163,6 +163,8 @@ spec:
         envFrom:
         - configMapRef:
             name: faust-config
+        - secretRef:
+            name: BROKER_PASSWORD
 ---
 apiVersion: v1
 kind: Service
