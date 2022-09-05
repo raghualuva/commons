@@ -164,7 +164,7 @@ spec:
         - configMapRef:
             name: faust-config
         - secretRef:
-            name: broker_password
+            name: kafka-secret
 ---
 apiVersion: v1
 kind: Service
