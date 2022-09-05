@@ -164,7 +164,7 @@ spec:
         - configMapRef:
             name: faust-config
         - secretRef:
-            name: BROKER_PASSWORD
+            name: broker_password
 ---
 apiVersion: v1
 kind: Service
